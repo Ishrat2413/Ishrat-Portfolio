@@ -5,7 +5,7 @@ import rintu from "../../../public/ishrat.png"
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 bg-white dark:bg-gray-900">
+    <section id="home" className="min-h-screen flex items-center justify-center pt-16 px-4 bg-white dark:bg-gray-900 transition-colors duration-300" style={{ backgroundColor: 'var(--bg-color)' }}>
       <div className="max-w-4xl mx-auto text-center">
         {/* Circular Profile Image */}
         <div className="relative w-40 h-40 mx-auto mb-8">

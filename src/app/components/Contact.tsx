@@ -1,7 +1,7 @@
 "use client";
 
 import { personalInfo } from '@/data';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -28,7 +28,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ backgroundColor: 'var(--bg-color)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -86,24 +86,24 @@ const Contact = () => {
 
             <div className="mt-8">
               <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Connect with me</h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-4" >
                 <a
                   href={`https://github.com/${personalInfo.github}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-colors"
+                  className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-colors" style={{ backgroundColor: 'var(--bg-color)' }}
                 >
                   <span className="sr-only">GitHub</span>
-                  {/* Add GitHub icon */}
+                  <Github />
                 </a>
                 <a
                   href={`https://linkedin.com/in/${personalInfo.linkedin}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-colors"
+                  className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-colors" style={{ backgroundColor: 'var(--bg-color)' }}
                 >
                   <span className="sr-only">LinkedIn</span>
-                  {/* Add LinkedIn icon */}
+                  <Linkedin />
                 </a>
               </div>
             </div>
@@ -123,7 +123,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" style={{ backgroundColor: 'var(--bg-color)' }}
                   placeholder="Your Name"
                 />
               </div>
@@ -139,7 +139,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" style={{ backgroundColor: 'var(--bg-color)' }}
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -155,14 +155,14 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" style={{ backgroundColor: 'var(--bg-color)' }}
                   placeholder="Your message here..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
+                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center" 
               >
                 <Send size={20} className="mr-2" />
                 Send Message

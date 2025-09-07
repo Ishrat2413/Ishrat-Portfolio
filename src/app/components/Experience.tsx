@@ -3,7 +3,7 @@ import { Calendar } from 'lucide-react';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-white dark:bg-gray-800">
+    <section id="experience" className="py-20 bg-white dark:bg-gray-800" style={{ backgroundColor: 'var(--bg-color)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">

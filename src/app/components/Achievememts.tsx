@@ -3,7 +3,7 @@ import { Award, AwardIcon } from 'lucide-react';
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-20 bg-white dark:bg-gray-800">
+    <section id="achievements" className="py-20 bg-white dark:bg-gray-800" style={{ backgroundColor: 'var(--bg-color)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -23,7 +23,7 @@ const Achievements = () => {
             </h3>
             <div className="space-y-6">
               {achievements.map((achievement, index) => (
-                <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg border-2" style={{ backgroundColor: 'var(--bg-color)' }} >
                   <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
                     {achievement.title}
                   </h4>
@@ -43,7 +43,7 @@ const Achievements = () => {
             </h3>
             <div className="space-y-6">
               {certifications.map((cert, index) => (
-                <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg border-2" style={{ backgroundColor: 'var(--bg-color)' }}>
                   <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
                     {cert.title}
                   </h4>
