@@ -20,6 +20,13 @@ export const projects: Project[] = [
     liveLink: "https://food-family-restaurant.vercel.app/"
   },
   {
+    title: "The EchoSphere",
+    description: "A news web with full Authentication.",
+    technologies: ["React", "Node.js", "Firebase", "JavaScript"],
+    githubLink: "https://github.com/Ishrat2413/EchoSphere",
+    liveLink: "https://the-echosphere.web.app"
+  },
+  {
     title: "Book Vibe",
     description: "A React-Router based library project where users can view books, read them, and leave reviews.",
     technologies: ["React", "React Router", "CSS"],
