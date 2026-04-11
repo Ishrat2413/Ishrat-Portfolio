@@ -1,174 +1,243 @@
 "use client";
 
-import { personalInfo } from '@/data';
-import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
-import { useState } from 'react';
+import { personalInfo } from "@/data";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  MessageCircle,
+} from "lucide-react";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add your form submission logic here
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setIsSending(true);
+    setStatusMessage(null);
+    setSubmitSuccess(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result?.error || "Failed to send message.");
+      }
+
+      setSubmitSuccess(true);
+      setStatusMessage(
+        "Message sent successfully. I will get back to you soon.",
+      );
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setSubmitSuccess(false);
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while sending your message.",
+      );
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900" style={{ backgroundColor: 'var(--bg-color)' }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+    <section id='contact' className='py-20 px-4'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45 }}
+          className='text-center mb-16'>
+          <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
             Get In Touch
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className='text-lg text-[color:var(--muted)]'>
             I would love to hear from you. Lets work together!
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              Contact Information
-            </h3>
-            
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-4 mt-1" />
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45 }}
+            className='section-shell rounded-3xl p-6 sm:p-8'>
+            <h3 className='text-2xl font-semibold mb-6'>Contact Information</h3>
+
+            <div className='space-y-6'>
+              <div className='flex items-start'>
+                <Mail className='h-6 w-6 text-[color:var(--primary)] mr-4 mt-1' />
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white">Email</h4>
+                  <h4 className='text-lg font-medium'>Email</h4>
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                  >
+                    className='text-[color:var(--muted)] hover:text-[color:var(--primary)]'>
                     {personalInfo.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <Phone className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-4 mt-1" />
+              <div className='flex items-start'>
+                <Phone className='h-6 w-6 text-[color:var(--primary)] mr-4 mt-1' />
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white">Phone</h4>
+                  <h4 className='text-lg font-medium'>Phone</h4>
                   <a
                     href={`tel:${personalInfo.phone}`}
-                    className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                  >
+                    className='text-[color:var(--muted)] hover:text-[color:var(--primary)]'>
                     {personalInfo.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <MapPin className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-4 mt-1" />
+              <div className='flex items-start'>
+                <MapPin className='h-6 w-6 text-[color:var(--primary)] mr-4 mt-1' />
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <h4 className='text-lg font-medium'>Location</h4>
+                  <p className='text-[color:var(--muted)]'>
                     {personalInfo.location}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8">
-              <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Connect with me</h4>
-              <div className="flex space-x-4" >
+            <div className='mt-8'>
+              <h4 className='text-lg font-medium mb-4'>Connect with me</h4>
+              <div className='flex space-x-4'>
                 <a
                   href={`https://github.com/${personalInfo.github}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-colors" style={{ backgroundColor: 'var(--bg-color)' }}
-                >
-                  <span className="sr-only">GitHub</span>
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-3 border border-emerald-900/15 rounded-lg hover:bg-[color:var(--primary)] hover:text-white'>
+                  <span className='sr-only'>GitHub</span>
                   <Github />
                 </a>
                 <a
                   href={`https://linkedin.com/in/${personalInfo.linkedin}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-colors" style={{ backgroundColor: 'var(--bg-color)' }}
-                >
-                  <span className="sr-only">LinkedIn</span>
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='p-3 border border-emerald-900/15 rounded-lg hover:bg-[color:var(--primary)] hover:text-white'>
+                  <span className='sr-only'>LinkedIn</span>
                   <Linkedin />
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Contact Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45 }}
+            className='section-shell rounded-3xl p-6 sm:p-8'>
+            <form onSubmit={handleSubmit} className='space-y-6'>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor='name'
+                  className='block text-sm font-medium mb-2 text-[color:var(--muted)]'>
                   Name
                 </label>
                 <input
-                  type="text"
-                  id="name"
-                  name="name"
+                  type='text'
+                  id='name'
+                  name='name'
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" style={{ backgroundColor: 'var(--bg-color)' }}
-                  placeholder="Your Name"
+                  className='w-full px-4 py-3 border border-emerald-900/15 rounded-lg bg-white/50 dark:bg-black/20 focus:outline-none focus:soft-ring'
+                  placeholder='Your Name'
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor='email'
+                  className='block text-sm font-medium mb-2 text-[color:var(--muted)]'>
                   Email
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
+                  type='email'
+                  id='email'
+                  name='email'
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" style={{ backgroundColor: 'var(--bg-color)' }}
-                  placeholder="your.email@example.com"
+                  className='w-full px-4 py-3 border border-emerald-900/15 rounded-lg bg-white/50 dark:bg-black/20 focus:outline-none focus:soft-ring'
+                  placeholder='your.email@example.com'
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor='message'
+                  className='block text-sm font-medium mb-2 text-[color:var(--muted)]'>
                   Message
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
+                  id='message'
+                  name='message'
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" style={{ backgroundColor: 'var(--bg-color)' }}
-                  placeholder="Your message here..."
-                ></textarea>
+                  className='w-full px-4 py-3 border border-emerald-900/15 rounded-lg bg-white/50 dark:bg-black/20 focus:outline-none focus:soft-ring'
+                  placeholder='Your message here...'></textarea>
               </div>
 
               <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center" 
-              >
-                <Send size={20} className="mr-2" />
-                Send Message
+                type='submit'
+                disabled={isSending}
+                className='w-full bg-[color:var(--primary)] text-white py-3 px-6 rounded-lg hover:brightness-110 transition-colors flex items-center justify-center'>
+                <MessageCircle size={20} className='mr-2' />
+                {isSending ? "Sending..." : "Send Message"}
               </button>
+
+              {statusMessage && (
+                <p
+                  className={`text-sm ${submitSuccess ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}`}>
+                  {statusMessage}
+                </p>
+              )}
+
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className='inline-flex items-center gap-2 text-sm text-[color:var(--muted)] hover:text-[color:var(--primary)]'>
+                <Send size={15} />
+                Prefer email? Send directly
+              </a>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

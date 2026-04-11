@@ -5,6 +5,7 @@ import {
   Achievement,
   Certification,
   SkillCategory,
+  LeadershipActivity,
 } from "@/types";
 
 export const personalInfo = {
@@ -178,6 +179,104 @@ export const projects: Project[] = [
     ],
     liveLink: "http://renewably.energy/",
   },
+  {
+    title: "Job Portal",
+    description:
+      "A role-based job platform where job seekers apply, employers post openings, and admins oversee system operations.",
+    technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
+    highlights: [
+      "Role-based dashboards for seekers, employers, and admins",
+      "Job application lifecycle tracking",
+      "Secure authentication and authorization",
+    ],
+    githubLink: "https://github.com/Ishrat2413/job-portal",
+  },
+  {
+    title: "Car Doctor",
+    description:
+      "An automotive service platform with booking workflows, service tracking, and payment processing.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Stripe",
+      "Tailwind CSS",
+    ],
+    highlights: [
+      "Service booking and order management",
+      "Service history and status tracking",
+      "Integrated online payment flow",
+    ],
+    liveLink: "https://car-doctor-blond.vercel.app/",
+  },
+  {
+    title: "Tetris Game",
+    description:
+      "A classic Tetris implementation with smooth controls, score tracking, and progressive levels.",
+    technologies: ["Python", "Pygame", "Game Loop", "Collision Handling"],
+    highlights: [
+      "Responsive keyboard controls and gameplay loop",
+      "Score tracking with level progression",
+      "Piece rotation and grid collision logic",
+    ],
+    githubLink: "https://github.com/Ishrat2413/Tetris-PyGame",
+  },
+  {
+    title: "Brain MRI Segmentation",
+    description:
+      "Medical image analysis project using U-Net architecture for accurate brain MRI segmentation and evaluation.",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "U-Net",
+      "OpenCV",
+      "Medical Imaging",
+    ],
+    highlights: [
+      "U-Net based segmentation pipeline",
+      "Image preprocessing and mask generation",
+      "Model evaluation for clinical-style accuracy metrics",
+    ],
+    githubLink:
+      "https://github.com/Ishrat2413/Brain-MRI-Segmentation-ML-Python-TensorFlow-U-Net-",
+  },
+  {
+    title: "Smart Agro-Care Robot",
+    description:
+      "A precision agriculture robot with soil monitoring, automated irrigation decisions, and remote control.",
+    technologies: [
+      "Arduino",
+      "Sensors",
+      "Embedded Systems",
+      "Bluetooth",
+      "IoT",
+    ],
+    highlights: [
+      "Sensor-driven soil and field monitoring",
+      "Automated irrigation behavior",
+      "Remote operation through Bluetooth control",
+    ],
+    liveLink: "https://youtu.be/blr05r-b2kI?si=DhaXwAq79BLahADR",
+  },
+  {
+    title: "Plant Disease Segmentation",
+    description:
+      "U-Net-based segmentation project to isolate infected regions from plant images for agricultural diagnostics.",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "U-Net",
+      "Image Segmentation",
+      "Deep Learning",
+    ],
+    highlights: [
+      "Accurate infected-region extraction",
+      "Segmentation mask generation pipeline",
+      "Supports precision agriculture diagnostics",
+    ],
+    githubLink:
+      "https://github.com/Ishrat2413/Advanced-U-Net-Model-for-Plant-Disease-Segmentation",
+  },
 ];
 
 export const experiences: Experience[] = [
@@ -219,12 +318,14 @@ export const education: Education[] = [
     institution: "BIAM Model School and College",
     period: "2018 – 2020",
     location: "Bogura, Bangladesh",
+    result: "GPA: 5.00 (Science)",
   },
   {
     degree: "Secondary School Certificate",
     institution: "BIAM Model School and College",
     period: "2016 – 2018",
     location: "Bogura, Bangladesh",
+    result: "GPA: 5.00 (Science)",
   },
 ];
 
@@ -239,6 +340,11 @@ export const achievements: Achievement[] = [
     description:
       "Participated in competitive programming contests across universities to strengthen algorithmic problem-solving.",
   },
+  {
+    title: "Chemistry Olympiad - National Qualifier",
+    description:
+      "Qualified at the national level through strong performance in regional and national chemistry olympiad evaluations.",
+  },
 ];
 
 export const certifications: Certification[] = [
@@ -251,6 +357,16 @@ export const certifications: Certification[] = [
     title: "NDAC 2025: Data Visionary Award",
     issuer: "National Level",
     year: "2025",
+  },
+  {
+    title: "CSS & JavaScript Certification",
+    issuer: "Udemy",
+    year: "2024",
+  },
+  {
+    title: "Digital Marketer Certification",
+    issuer: "SR DreamIT",
+    year: "2024",
   },
 ];
 
@@ -277,7 +393,19 @@ export const skills: SkillCategory[] = [
   },
   {
     name: "Tools",
-    skills: ["Git", "Docker", "Postman", "Jira", "Coolify", "Moon Modeler"],
+    skills: [
+      "Git",
+      "Docker",
+      "Postman",
+      "Jira",
+      "Selenium",
+      "Coolify",
+      "Moon Modeler",
+    ],
+  },
+  {
+    name: "Soft Skills",
+    skills: ["Problem Solving", "Teamwork", "Critical Thinking"],
   },
 ];
 
@@ -285,4 +413,21 @@ export const languages = [
   { name: "English", level: "Fluent" },
   { name: "Bangla", level: "Fluent" },
   { name: "Hindi", level: "Intermediate" },
+];
+
+export const leadershipActivities: LeadershipActivity[] = [
+  {
+    role: "Senior Executive - IT",
+    organization: "BUEDF, BRAC University",
+    period: "2021 – 2025",
+    description:
+      "Led technical initiatives and supported IT operations for university entrepreneurship events and programs.",
+  },
+  {
+    role: "Rover Scout Member",
+    organization: "Bangladesh Scouts",
+    period: "2017 – 2020",
+    description:
+      "Participated in volunteer events, flood relief activities, and community service programs.",
+  },
 ];

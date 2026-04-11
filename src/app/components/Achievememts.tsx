@@ -1,62 +1,84 @@
-import { achievements, certifications } from '@/data';
-import { Award, AwardIcon } from 'lucide-react';
+"use client";
+
+import { achievements, certifications } from "@/data";
+import { Award, AwardIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-20 bg-white dark:bg-gray-800" style={{ backgroundColor: 'var(--bg-color)' }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+    <section id='achievements' className='py-20 px-4'>
+      <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.45 }}
+          className='text-center mb-16'>
+          <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
             Achievements & Certifications
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className='text-lg text-[color:var(--muted)]'>
             My accomplishments and professional certifications
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Achievements */}
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
-              <Award className="mr-3 text-blue-600 dark:text-blue-400" />
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45 }}>
+            <h3 className='text-2xl font-semibold mb-6 flex items-center'>
+              <Award className='mr-3 text-[color:var(--primary)]' />
               Achievements
             </h3>
-            <div className="space-y-6">
+            <div className='space-y-6'>
               {achievements.map((achievement, index) => (
-                <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg border-2" style={{ backgroundColor: 'var(--bg-color)' }} >
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                <motion.article
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: index * 0.1 }}
+                  className='section-shell p-6 rounded-2xl'>
+                  <h4 className='text-lg font-medium mb-2'>
                     {achievement.title}
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className='text-[color:var(--muted)]'>
                     {achievement.description}
                   </p>
-                </div>
+                </motion.article>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Certifications */}
-          <div>
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
-              <AwardIcon className="mr-3 text-blue-600 dark:text-blue-400" />
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.45 }}>
+            <h3 className='text-2xl font-semibold mb-6 flex items-center'>
+              <AwardIcon className='mr-3 text-[color:var(--secondary)]' />
               Certifications
             </h3>
-            <div className="space-y-6">
+            <div className='space-y-6'>
               {certifications.map((cert, index) => (
-                <div key={index} className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg border-2" style={{ backgroundColor: 'var(--bg-color)' }}>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    {cert.title}
-                  </h4>
-                  <p className="text-blue-600 dark:text-blue-400 mb-2">
+                <motion.article
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: index * 0.1 }}
+                  className='section-shell p-6 rounded-2xl'>
+                  <h4 className='text-lg font-medium mb-2'>{cert.title}</h4>
+                  <p className='text-[color:var(--primary)] mb-2'>
                     {cert.issuer}
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {cert.year}
-                  </p>
-                </div>
+                  <p className='text-[color:var(--muted)]'>{cert.year}</p>
+                </motion.article>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
