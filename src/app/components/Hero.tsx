@@ -105,7 +105,7 @@ const Hero = () => {
                 </a>
                 <a
                   href='/MstIshratJahanRintu_Resume.pdf'
-                  download
+                  download='MstIshratJahanRintu_Resume.pdf'
                   className='inline-flex items-center gap-2 rounded-full border border-orange-500/30 px-5 py-3 text-[color:var(--secondary)] hover:bg-orange-300/10'>
                   <Download size={18} />
                   Download Resume
