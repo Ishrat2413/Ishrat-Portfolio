@@ -15,7 +15,7 @@ const Experience = () => {
           transition={{ duration: 0.45 }}
           className='text-center mb-16'>
           <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
-            Work Experience
+            <span className='shimmer-text'>Work Experience</span>
           </h2>
           <p className='text-lg text-[color:var(--muted)]'>
             My professional journey and contributions
@@ -30,8 +30,9 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className='relative pl-10 section-shell rounded-3xl p-6 sm:p-8'>
-              <div className='absolute left-4 top-8 h-[80%] w-[2px] bg-gradient-to-b from-emerald-500 to-orange-400' />
+              whileHover={{ y: -5 }}
+              className='relative pl-10 section-shell play-card rounded-3xl p-6 sm:p-8'>
+              <div className='absolute left-4 top-8 h-[80%] w-[2px] bg-gradient-to-b from-emerald-500 to-blue-400' />
               <div className='absolute left-2.5 top-8 w-5 h-5 bg-[color:var(--primary)] rounded-full flex items-center justify-center'>
                 <BriefcaseBusiness size={12} className='text-white' />
               </div>

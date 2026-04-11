@@ -20,7 +20,7 @@ const Skills = () => {
           transition={{ duration: 0.45 }}
           className='text-center mb-16'>
           <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
-            Skills & Languages
+            <span className='shimmer-text'>Skills & Languages</span>
           </h2>
           <p className='text-lg text-[color:var(--muted)]'>
             Technologies I work with and languages I speak
@@ -33,7 +33,8 @@ const Skills = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45 }}
-            className='section-shell rounded-3xl p-6'>
+            whileHover={{ y: -4 }}
+            className='section-shell play-card rounded-3xl p-6'>
             <h3 className='text-2xl font-semibold mb-6 text-center md:text-left'>
               Technical Skills
             </h3>
@@ -67,7 +68,8 @@ const Skills = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45 }}
-            className='section-shell rounded-3xl p-6'>
+            whileHover={{ y: -4 }}
+            className='section-shell play-card rounded-3xl p-6'>
             <h3 className='text-2xl font-semibold mb-6 text-center md:text-left'>
               Languages
             </h3>
@@ -87,7 +89,7 @@ const Skills = () => {
                   </div>
                   <div className='w-full bg-white/50 dark:bg-black/30 rounded-full h-2.5 overflow-hidden'>
                     <motion.div
-                      className='h-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-orange-400'
+                      className='h-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-blue-400'
                       initial={{ width: 0 }}
                       whileInView={{ width: levelToWidth(language.level) }}
                       viewport={{ once: true }}

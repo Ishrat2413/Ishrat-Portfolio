@@ -285,7 +285,7 @@ export const experiences: Experience[] = [
     company: "FB International BD",
     period: "December 2025 – Present",
     description: [
-      "Developed and maintained multiple full-stack applications using React/Next.js and Node.js/NestJS with REST APIs.",
+      "Built and maintained multiple full-stack applications using React/Next.js and Node.js/NestJS with REST APIs.",
       "Designed robust database architecture for SQL (MySQL/PostgreSQL) and NoSQL (MongoDB) workflows.",
       "Integrated AI-powered features and custom machine learning models into production systems.",
       "Delivered key client projects including Farrior Homes, Zilky Wipes, Prepcart, OCMP, and Renewably Energy.",

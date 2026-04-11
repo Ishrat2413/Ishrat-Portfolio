@@ -47,7 +47,9 @@ const Projects = () => {
           className='text-center mb-14'>
           <h2 className='font-[var(--font-display)] text-4xl md:text-5xl mb-4'>
             Featured{" "}
-            <span className='text-[color:var(--primary)]'>Projects</span>
+            <span className='text-[color:var(--primary)] shimmer-text'>
+              Projects
+            </span>
           </h2>
           <p className='text-lg text-[color:var(--muted)] max-w-3xl mx-auto'>
             Production-focused builds across restaurant systems, travel
@@ -65,14 +67,14 @@ const Projects = () => {
             <motion.article
               variants={cardVariants}
               key={`${project.title}-${index}`}
-              whileHover={{ y: -6 }}
-              className='group relative section-shell rounded-3xl overflow-hidden'>
+              whileHover={{ y: -6, scale: 1.01 }}
+              className='group relative section-shell play-card rounded-3xl overflow-hidden'>
               <div
                 className={`h-48 relative overflow-hidden ${
                   index % 3 === 0
                     ? "bg-gradient-to-r from-emerald-500 to-teal-700"
                     : index % 3 === 1
-                      ? "bg-gradient-to-r from-orange-400 to-rose-600"
+                      ? "bg-gradient-to-r from-sky-400 to-blue-600"
                       : "bg-gradient-to-r from-cyan-500 to-indigo-700"
                 }`}>
                 <div className='absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-colors duration-300'></div>
@@ -132,7 +134,7 @@ const Projects = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className='px-3 py-1.5 bg-emerald-100/70 dark:bg-emerald-800/20 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-medium rounded-full border border-emerald-400/25'>
+                      className='play-card px-3 py-1.5 bg-emerald-100/70 dark:bg-emerald-800/20 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-medium rounded-full border border-emerald-400/25'>
                       {tech}
                     </span>
                   ))}

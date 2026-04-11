@@ -21,7 +21,7 @@ const Education = () => {
           transition={{ duration: 0.45 }}
           className='text-center mb-16'>
           <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
-            Education
+            <span className='shimmer-text'>Education</span>
           </h2>
           <p className='text-lg text-[color:var(--muted)]'>
             My academic background and achievements
@@ -37,7 +37,7 @@ const Education = () => {
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
               whileHover={{ y: -5 }}
-              className='section-shell rounded-3xl p-6'>
+              className='section-shell play-card rounded-3xl p-6'>
               <div className='inline-flex p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/20 mb-4'>
                 <GraduationCap
                   size={18}

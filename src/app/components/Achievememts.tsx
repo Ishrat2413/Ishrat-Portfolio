@@ -15,7 +15,7 @@ const Achievements = () => {
           transition={{ duration: 0.45 }}
           className='text-center mb-16'>
           <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
-            Achievements & Certifications
+            <span className='shimmer-text'>Achievements & Certifications</span>
           </h2>
           <p className='text-lg text-[color:var(--muted)]'>
             My accomplishments and professional certifications
@@ -40,7 +40,8 @@ const Achievements = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.1 }}
-                  className='section-shell p-6 rounded-2xl'>
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  className='section-shell play-card p-6 rounded-2xl'>
                   <h4 className='text-lg font-medium mb-2'>
                     {achievement.title}
                   </h4>
@@ -69,7 +70,8 @@ const Achievements = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: index * 0.1 }}
-                  className='section-shell p-6 rounded-2xl'>
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  className='section-shell play-card p-6 rounded-2xl'>
                   <h4 className='text-lg font-medium mb-2'>{cert.title}</h4>
                   <p className='text-[color:var(--primary)] mb-2'>
                     {cert.issuer}

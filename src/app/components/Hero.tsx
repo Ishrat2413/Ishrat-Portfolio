@@ -26,11 +26,11 @@ const Hero = () => {
     <section
       id='home'
       className='min-h-screen flex items-center justify-center px-4 py-20'>
-      <div className='max-w-6xl mx-auto w-full'>
+      <div className='max-w-7xl mx-auto w-full'>
         <div className='section-shell rounded-[2rem] p-6 sm:p-10 lg:p-12 relative overflow-hidden'>
           <div className='absolute inset-0 -z-10'>
             <div className='absolute -top-14 -right-14 h-52 w-52 rounded-full bg-emerald-400/20 blur-3xl' />
-            <div className='absolute -bottom-20 left-10 h-60 w-60 rounded-full bg-orange-300/20 blur-3xl' />
+            <div className='absolute -bottom-20 left-10 h-60 w-60 rounded-full bg-cyan-300/20 blur-3xl' />
           </div>
 
           <div className='grid lg:grid-cols-[300px_1fr] gap-10 items-center'>
@@ -40,7 +40,7 @@ const Hero = () => {
               transition={{ duration: 0.55 }}
               className='mx-auto'>
               <div className='relative w-56 h-56 sm:w-64 sm:h-64'>
-                <div className='absolute inset-0 rounded-[2rem] bg-gradient-to-br from-emerald-400/50 via-teal-400/20 to-orange-300/45 soft-ring' />
+                <div className='absolute inset-0 rounded-[2rem] bg-gradient-to-br from-emerald-400/50 via-teal-400/20 to-cyan-300/45 soft-ring' />
                 <div className='absolute inset-2 rounded-[1.6rem] overflow-hidden border border-white/60 dark:border-white/15'>
                   <Image
                     src={rintu}
@@ -65,7 +65,7 @@ const Hero = () => {
               </div>
 
               <h1 className='font-[var(--font-display)] text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4'>
-                {personalInfo.name}
+                <span className='name-sparkle'>{personalInfo.name}</span>
               </h1>
               <h2 className='text-xl sm:text-2xl text-[color:var(--primary)] font-semibold mb-4'>
                 {personalInfo.title}
@@ -81,7 +81,8 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.45, delay: 0.2 + idx * 0.08 }}
-                    className='rounded-2xl border border-emerald-900/10 bg-white/45 dark:bg-black/20 p-3'>
+                    whileHover={{ y: -4, scale: 1.03 }}
+                    className='play-card rounded-2xl border border-emerald-900/10 bg-white/45 dark:bg-black/20 p-3'>
                     <p className='text-xs uppercase tracking-wide text-[color:var(--muted)]'>
                       {item.label}
                     </p>
@@ -93,20 +94,20 @@ const Hero = () => {
               <div className='flex flex-wrap items-center gap-3 mb-6'>
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className='inline-flex items-center gap-2 rounded-full bg-[color:var(--primary)] text-white px-5 py-3 hover:scale-[1.02]'>
+                  className='play-card inline-flex items-center gap-2 rounded-full bg-emerald-700 dark:bg-emerald-300 text-white dark:text-emerald-950 px-5 py-3 hover:bg-emerald-800 dark:hover:bg-emerald-200 hover:scale-[1.02] shadow-md shadow-emerald-700/20 dark:shadow-emerald-300/15'>
                   <Mail size={18} />
                   Contact Me
                 </a>
                 <a
                   href='#projects'
-                  className='inline-flex items-center gap-2 rounded-full border border-emerald-900/15 px-5 py-3 hover:bg-white/40 dark:hover:bg-black/20'>
+                  className='play-card inline-flex items-center gap-2 rounded-full border border-emerald-900/15 px-5 py-3 hover:bg-white/40 dark:hover:bg-black/20'>
                   <BriefcaseBusiness size={18} />
                   View Projects
                 </a>
                 <a
                   href='/MstIshratJahanRintu_Resume.pdf'
                   download='MstIshratJahanRintu_Resume.pdf'
-                  className='inline-flex items-center gap-2 rounded-full border border-orange-500/30 px-5 py-3 text-[color:var(--secondary)] hover:bg-orange-300/10'>
+                  className='play-card inline-flex items-center gap-2 rounded-full border border-blue-500/30 px-5 py-3 text-[color:var(--secondary)] hover:bg-blue-300/10'>
                   <Download size={18} />
                   Download Resume
                 </a>

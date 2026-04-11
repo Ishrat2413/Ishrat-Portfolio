@@ -80,7 +80,7 @@ const Contact = () => {
           transition={{ duration: 0.45 }}
           className='text-center mb-16'>
           <h2 className='font-[var(--font-display)] text-3xl md:text-4xl mb-4'>
-            Get In Touch
+            <span className='shimmer-text'>Get In Touch</span>
           </h2>
           <p className='text-lg text-[color:var(--muted)]'>
             I would love to hear from you. Lets work together!
@@ -93,7 +93,8 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45 }}
-            className='section-shell rounded-3xl p-6 sm:p-8'>
+            whileHover={{ y: -4 }}
+            className='section-shell play-card rounded-3xl p-6 sm:p-8'>
             <h3 className='text-2xl font-semibold mb-6'>Contact Information</h3>
 
             <div className='space-y-6'>
@@ -139,7 +140,7 @@ const Contact = () => {
                   href={`https://github.com/${personalInfo.github}`}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='p-3 border border-emerald-900/15 rounded-lg hover:bg-[color:var(--primary)] hover:text-white'>
+                  className='play-card p-3 border border-emerald-900/15 rounded-lg hover:bg-[color:var(--primary)] hover:text-white'>
                   <span className='sr-only'>GitHub</span>
                   <Github />
                 </a>
@@ -147,7 +148,7 @@ const Contact = () => {
                   href={`https://linkedin.com/in/${personalInfo.linkedin}`}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='p-3 border border-emerald-900/15 rounded-lg hover:bg-[color:var(--primary)] hover:text-white'>
+                  className='play-card p-3 border border-emerald-900/15 rounded-lg hover:bg-[color:var(--primary)] hover:text-white'>
                   <span className='sr-only'>LinkedIn</span>
                   <Linkedin />
                 </a>
@@ -160,7 +161,8 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45 }}
-            className='section-shell rounded-3xl p-6 sm:p-8'>
+            whileHover={{ y: -4 }}
+            className='section-shell play-card rounded-3xl p-6 sm:p-8'>
             <form onSubmit={handleSubmit} className='space-y-6'>
               <div>
                 <label
