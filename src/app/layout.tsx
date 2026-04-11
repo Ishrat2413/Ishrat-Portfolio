@@ -1,13 +1,22 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-import Navigation from './components/Navigation';
+import type { Metadata } from "next";
+import { Manrope, Space_Grotesk } from "next/font/google";
+import "./globals.css";
+import Navigation from "./components/Navigation";
 
-const inter = Inter({ subsets: ['latin'] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
 
 export const metadata: Metadata = {
-  title: 'Ishrat Jahan Rintu - Portfolio',
-  description: 'Computer Science and Engineering Student Portfolio',
+  title: "MST. Ishrat Jahan Rintu | Full Stack Developer",
+  description:
+    "Portfolio of MST. Ishrat Jahan Rintu, Full Stack Developer focused on scalable web products and AI-enabled applications.",
 };
 
 export default function RootLayout({
@@ -16,12 +25,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang='en'>
+      <body
+        className={`${manrope.variable} ${spaceGrotesk.variable} font-[var(--font-body)]`}>
         <Navigation />
-        <div className="pt-16">
-          {children}
-        </div>
+        <div className='pt-16'>{children}</div>
       </body>
     </html>
   );
