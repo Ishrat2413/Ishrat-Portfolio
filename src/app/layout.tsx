@@ -14,9 +14,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "MST. Ishrat Jahan Rintu | Full Stack Developer",
+  title: "Ishrat Jahan Rintu | Full Stack Developer",
   description:
-    "Portfolio of MST. Ishrat Jahan Rintu, Full Stack Developer focused on scalable web products and AI-enabled applications.",
+    "Portfolio of Ishrat Jahan Rintu, Full Stack Developer focused on scalable web products and AI-enabled applications.",
 };
 
 export default function RootLayout({
