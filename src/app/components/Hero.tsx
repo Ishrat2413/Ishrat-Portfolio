@@ -57,13 +57,6 @@ const Hero = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}>
-              <div
-                id='about'
-                className='inline-flex items-center gap-2 rounded-full border border-emerald-900/15 px-3 py-1 text-sm text-[color:var(--muted)] mb-5'>
-                <Sparkles size={14} />
-                Building modern web products with AI-ready architecture
-              </div>
-
               <h1 className='font-[var(--font-display)] text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4'>
                 <span className='name-sparkle'>{personalInfo.name}</span>
               </h1>
